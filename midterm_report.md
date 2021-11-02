@@ -37,17 +37,11 @@ Next, we removed the outliers from the two datasets. In our financial indicators
 It was also important to remove the outliers in our price dataset, as the outliers affect the yearly mean closing prices of stocks. However, the outliers had to be searched for each stock, as stocks have different ranges of prices. For each stock, we first defined the outliers as:
 
 
-<h4 align="center">
-```math
-    $[Q_1 - 1.5IQR, Q_3 + 1.5IQR]$
-```</h4>
+![1](a.png)
 
 But this criteria classified more than 10% of the data as outliers. Thus, instead of arbitrarily modifying the conventional definition of outliers using IQR, we instead defined the outliers as points that are outside of 99% confidence interval of the mean by using the z-score of 2.576.
 
-<h4 align="center">
-```math
-    $[\bar x - z*\frac {s} {\sqrt n}, \bar x + z*\frac {s} {\sqrt n}]$
-```</h4>
+![2](b.png)
 
 Using this method, we removed 3665 out of 619040 rows, which is 0.6% of our data.
 
@@ -86,9 +80,10 @@ Further feature selections and modeling will be applied on these two models.
 
 ## Plan for Improvement
 
-Since our data is very high-dimensional, we still have many features in our models even after applying feature selection methods. In our next step, we will focus on further reducing the dimension of our data to avoid overfitting and reduce the variance of both regression and classification models. We plan to achieve this through lasso, which will select fewer features and give us more sparse models. We will also try other feature selection techniques.
+Since our data is very high-dimensional, we still have many features in our models even after applying feature selection methods. In our next step, we will focus on further reductions on the dimension of our data to avoid overfitting and the variance of both regression and classification models. We plan to achieve this through lasso, which will select fewer features and give us more sparse models. In addition, we will also try other feature selection techniques.
 
-For our regression model, we will try to find the best model by comparing our linear model with other models. For example, we will also use feature transformation to improve the accuracy of our model like using the quadratic regression.
+For our regression model, we will try to find the best model by comparing our linear model with other kinds of models. For example, we will also use feature transformation to improve the accuracy of our model, for example, the quadratic regression.
 
-For our classification model, we will also fit different models such as tree and KNN and compare their test error rates to find the best model.
+For our classification model, we will also fit different models such as tree and KNN, and compare their test error rates to find the best model.
 
+Besides, we will choose specific sectors to build more accurate models.
