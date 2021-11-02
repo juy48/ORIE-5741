@@ -37,11 +37,17 @@ Next, we removed the outliers from the two datasets. In our financial indicators
 It was also important to remove the outliers in our price dataset, as the outliers affect the yearly mean closing prices of stocks. However, the outliers had to be searched for each stock, as stocks have different ranges of prices. For each stock, we first defined the outliers as:
 
 
-<h4 align="center">$[Q_1 - 1.5IQR, Q_3 + 1.5IQR]$ </h4>
+<h4 align="center">
+```math
+    $[Q_1 - 1.5IQR, Q_3 + 1.5IQR]$
+```</h4>
 
 But this criteria classified more than 10% of the data as outliers. Thus, instead of arbitrarily modifying the conventional definition of outliers using IQR, we instead defined the outliers as points that are outside of 99% confidence interval of the mean by using the z-score of 2.576.
 
-<h4 align="center">$[\bar x - z*\frac {s} {\sqrt n}, \bar x + z*\frac {s} {\sqrt n}]$</h4>
+<h4 align="center">
+```math
+    $[\bar x - z*\frac {s} {\sqrt n}, \bar x + z*\frac {s} {\sqrt n}]$
+```</h4>
 
 Using this method, we removed 3665 out of 619040 rows, which is 0.6% of our data.
 
